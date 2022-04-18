@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "nInaUYc6A6nht4MwR9fZUu+HHhHK/droJC8mQWqSWRvwSFOHCVa1Sz8t9R8+VyC/UHUD1gyI85kXgOX8HBOSTw==",
+  "dgSpecHash": "p2JRurklffjN70fn86XsdKWKdvOOl0Czs5B74RqYCvklLXMVFfNAL6GSM+BKztBM/OBHDY+Iofvyh8NR8Jhc2Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Danila\\Source\\Repos\\DelfaTestBot\\DelfaTestBot\\DelfaTestBot.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Danila\\.nuget\\packages\\indexrange\\1.0.0\\indexrange.1.0.0.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
@@ -44,6 +45,7 @@
     "C:\\Users\\Danila\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
+    "C:\\Users\\Danila\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\system.net.http\\4.3.0\\system.net.http.4.3.0.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\system.net.requests\\4.3.0\\system.net.requests.4.3.0.nupkg.sha512",
@@ -59,6 +61,7 @@
     "C:\\Users\\Danila\\.nuget\\packages\\system.reflection.typeextensions\\4.3.0\\system.reflection.typeextensions.4.3.0.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\system.resources.resourcemanager\\4.3.0\\system.resources.resourcemanager.4.3.0.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\Danila\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\system.runtime.extensions\\4.3.0\\system.runtime.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\system.runtime.handles\\4.3.0\\system.runtime.handles.4.3.0.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\system.runtime.interopservices\\4.3.0\\system.runtime.interopservices.4.3.0.nupkg.sha512",
@@ -73,6 +76,8 @@
     "C:\\Users\\Danila\\.nuget\\packages\\system.security.cryptography.x509certificates\\4.3.0\\system.security.cryptography.x509certificates.4.3.0.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\system.text.encoding.extensions\\4.3.0\\system.text.encoding.extensions.4.3.0.nupkg.sha512",
+    "C:\\Users\\Danila\\.nuget\\packages\\system.text.encodings.web\\5.0.1\\system.text.encodings.web.5.0.1.nupkg.sha512",
+    "C:\\Users\\Danila\\.nuget\\packages\\system.text.json\\5.0.2\\system.text.json.5.0.2.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\system.text.regularexpressions\\4.3.0\\system.text.regularexpressions.4.3.0.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
@@ -80,7 +85,8 @@
     "C:\\Users\\Danila\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Danila\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Danila\\.nuget\\packages\\telegram.bot\\16.0.1\\telegram.bot.16.0.1.nupkg.sha512"
+    "C:\\Users\\Danila\\.nuget\\packages\\telegram.bot\\16.0.2\\telegram.bot.16.0.2.nupkg.sha512",
+    "C:\\Users\\Danila\\.nuget\\packages\\wtelegramclient\\2.3.1\\wtelegramclient.2.3.1.nupkg.sha512"
   ],
   "logs": []
 }

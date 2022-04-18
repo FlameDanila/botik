@@ -32,3 +32,8 @@ C:\Users\Danila\Source\Repos\DelfaTestBot\DelfaTestBot\obj\Debug\netcoreapp3.1\D
 C:\Users\Danila\Source\Repos\DelfaTestBot\DelfaTestBot\obj\Debug\netcoreapp3.1\DelfaTestBot.dll
 C:\Users\Danila\Source\Repos\DelfaTestBot\DelfaTestBot\obj\Debug\netcoreapp3.1\DelfaTestBot.pdb
 C:\Users\Danila\Source\Repos\DelfaTestBot\DelfaTestBot\obj\Debug\netcoreapp3.1\DelfaTestBot.genruntimeconfig.cache
+C:\Users\Danila\Source\Repos\DelfaTestBot\DelfaTestBot\bin\Debug\netcoreapp3.1\IndexRange.dll
+C:\Users\Danila\Source\Repos\DelfaTestBot\DelfaTestBot\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Danila\Source\Repos\DelfaTestBot\DelfaTestBot\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
+C:\Users\Danila\Source\Repos\DelfaTestBot\DelfaTestBot\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\Danila\Source\Repos\DelfaTestBot\DelfaTestBot\bin\Debug\netcoreapp3.1\WTelegramClient.dll

@@ -8,10 +8,19 @@
     ".NETCoreApp,Version=v3.1": {
       "DelfaTestBot/1.0.0": {
         "dependencies": {
-          "Telegram.Bot": "16.0.1"
+          "Telegram.Bot": "16.0.2",
+          "WTelegramClient": "2.3.1"
         },
         "runtime": {
           "DelfaTestBot.dll": {}
+        }
+      },
+      "IndexRange/1.0.0": {
+        "runtime": {
+          "lib/netstandard2.1/IndexRange.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
@@ -314,6 +323,7 @@
           "System.Threading": "4.3.0"
         }
       },
+      "System.Memory/4.5.4": {},
       "System.Net.Http/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -463,6 +473,14 @@
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
           "Microsoft.NETCore.Targets": "1.1.0"
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/5.0.0": {
+        "runtime": {
+          "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
         }
       },
       "System.Runtime.Extensions/4.3.0": {
@@ -646,6 +664,26 @@
           "System.Text.Encoding": "4.3.0"
         }
       },
+      "System.Text.Encodings.Web/5.0.1": {
+        "runtime": {
+          "lib/netcoreapp3.0/System.Text.Encodings.Web.dll": {
+            "assemblyVersion": "5.0.0.1",
+            "fileVersion": "5.0.421.11614"
+          }
+        }
+      },
+      "System.Text.Json/5.0.2": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "5.0.0",
+          "System.Text.Encodings.Web": "5.0.1"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.Text.Json.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.521.16609"
+          }
+        }
+      },
       "System.Text.RegularExpressions/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -707,7 +745,7 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "Telegram.Bot/16.0.1": {
+      "Telegram.Bot/16.0.2": {
         "dependencies": {
           "NETStandard.Library": "1.6.1",
           "Newtonsoft.Json": "11.0.2",
@@ -716,8 +754,21 @@
         },
         "runtime": {
           "lib/netstandard1.3/Telegram.Bot.dll": {
-            "assemblyVersion": "16.0.1.0",
-            "fileVersion": "16.0.1.0"
+            "assemblyVersion": "16.0.2.0",
+            "fileVersion": "16.0.2.0"
+          }
+        }
+      },
+      "WTelegramClient/2.3.1": {
+        "dependencies": {
+          "IndexRange": "1.0.0",
+          "System.Memory": "4.5.4",
+          "System.Text.Json": "5.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/WTelegramClient.dll": {
+            "assemblyVersion": "2.3.1.0",
+            "fileVersion": "2.3.1.0"
           }
         }
       }
@@ -728,6 +779,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "IndexRange/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6TgS1JLSUkpmPLfXBPaAgB39ZUix8E4soXWk2XSDcscVe84i1JKzIAtA7jHbRHSkOOrcr6YA0MpLCeq98y9mYQ==",
+      "path": "indexrange/1.0.0",
+      "hashPath": "indexrange.1.0.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
@@ -1009,6 +1067,13 @@
       "path": "system.linq.expressions/4.3.0",
       "hashPath": "system.linq.expressions.4.3.0.nupkg.sha512"
     },
+    "System.Memory/4.5.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
+      "path": "system.memory/4.5.4",
+      "hashPath": "system.memory.4.5.4.nupkg.sha512"
+    },
     "System.Net.Http/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1114,6 +1179,13 @@
       "path": "system.runtime/4.3.0",
       "hashPath": "system.runtime.4.3.0.nupkg.sha512"
     },
+    "System.Runtime.CompilerServices.Unsafe/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA==",
+      "path": "system.runtime.compilerservices.unsafe/5.0.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+    },
     "System.Runtime.Extensions/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1212,6 +1284,20 @@
       "path": "system.text.encoding.extensions/4.3.0",
       "hashPath": "system.text.encoding.extensions.4.3.0.nupkg.sha512"
     },
+    "System.Text.Encodings.Web/5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KmJ+CJXizDofbq6mpqDoRRLcxgOd2z9X3XoFNULSbvbqVRZkFX3istvr+MUjL6Zw1RT+RNdoI4GYidIINtgvqQ==",
+      "path": "system.text.encodings.web/5.0.1",
+      "hashPath": "system.text.encodings.web.5.0.1.nupkg.sha512"
+    },
+    "System.Text.Json/5.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-I47dVIGiV6SfAyppphxqupertT/5oZkYLDCX6vC3HpOI4ZLjyoKAreUoem2ie6G0RbRuFrlqz/PcTQjfb2DOfQ==",
+      "path": "system.text.json/5.0.2",
+      "hashPath": "system.text.json.5.0.2.nupkg.sha512"
+    },
     "System.Text.RegularExpressions/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1261,12 +1347,19 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
-    "Telegram.Bot/16.0.1": {
+    "Telegram.Bot/16.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-SO5E+TT3pucwOpqnwLU1Qpcqg03QdK5WuLyjDPHUb1SAq2P4NXN0q6jnd+Bm9OApg2PF1ggRspijl//PWtHSpg==",
-      "path": "telegram.bot/16.0.1",
-      "hashPath": "telegram.bot.16.0.1.nupkg.sha512"
+      "sha512": "sha512-kasIAeRUfXeeUCfwjLCtqCGi2PerSqpNnNQznZam/NxqNTAMxXKffsdtcKjSx34dH17FSIHEvLMkPkZed5JbfQ==",
+      "path": "telegram.bot/16.0.2",
+      "hashPath": "telegram.bot.16.0.2.nupkg.sha512"
+    },
+    "WTelegramClient/2.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lOHeuobIQAByMOSr1f5zAud86sM7c2v+0hY0t9XQDQ0yzRMaEykW7f6YRCVQmMmWdoYN4UM3w26dX/yfFVMWuQ==",
+      "path": "wtelegramclient/2.3.1",
+      "hashPath": "wtelegramclient.2.3.1.nupkg.sha512"
     }
   }
 }

@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types.ReplyMarkups;
+using TL;
 
 namespace DelfaTestBot
 {
@@ -13,10 +16,33 @@ namespace DelfaTestBot
         private static string token { get; set; } = "5183249647:AAHCx42xlNoIEZ51EXA2qo0lJe0e4mp_J4M";
         private static TelegramBotClient client;
         public static int Counter = 1;
+        public static long chatId = 0;
 
         [Obsolete]
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
+            static string Config(string what)
+            {
+                switch (what)
+                {
+                    case "api_id": return "17257489";
+                    case "api_hash": return "1c8608e262882c49cb57d1640b46b559";
+                    case "phone_number": return "+79504951460";
+                    case "verification_code": Console.Write("Code: "); return Console.ReadLine();
+                    case "first_name": return "Danila";      // if sign-up is required
+                    case "last_name": return ".";        // if sign-up is required
+                    case "password": return "secret!";     // if user has enabled 2FA
+                    default: return null;                  // let WTelegramClient decide the default config
+                }
+            }
+
+            using var wTLClient = new WTelegram.Client(Config);
+            var my = await wTLClient.LoginUserIfNeeded();
+            Console.WriteLine($"We are logged-in as {my.username ?? my.first_name + " " + my.last_name} (id {my.id})");
+            var resolved = await wTLClient.Contacts_ResolvePhone("+79123990909"); // username without the @
+            chatId = resolved.Chat.ID;
+            await wTLClient.SendMessageAsync(resolved, "Привет, это сообщение отправляется ботом для тестирования его возможностей.");
+
             client = new TelegramBotClient(token);
             client.StartReceiving();
             client.OnMessage += OnMessageHandler;
@@ -30,9 +56,11 @@ namespace DelfaTestBot
             var msg = e.Message;
             var name = msg.From.FirstName + " " + msg.From.LastName;
             Console.WriteLine(name);
+
             if (msg.Text.ToLower() == "cтарт" || msg.Text.ToLower() == "пройти тест заново" || msg.Text.ToLower() == "start" || msg.Text.ToLower() == "/start" || (msg.Text.ToLower() == "вернуться к прошлому вопросу" && Counter == 1))
             {
                 Console.WriteLine("Пришло сообщение: " + msg.Text);
+                await client.SendTextMessageAsync(chatId, "ahahahhhahah");
                 await client.SendTextMessageAsync(msg.Chat.Id, "Вопрос 1:\nВам больше 18 лет?", replyMarkup: StartButtons());
                 Counter = 0;
             }
@@ -143,88 +171,88 @@ namespace DelfaTestBot
             //    file.Write(vs, 0, vs.Length);
             //}
 
-            return new ReplyKeyboardMarkup
+            return new Telegram.Bot.Types.ReplyMarkups.ReplyKeyboardMarkup
             {
-                Keyboard = new List<List<KeyboardButton>>
+                Keyboard = new List<List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton>>
                 {
-                    new List<KeyboardButton> { new KeyboardButton { Text = "Больше или ровно 18" }, new KeyboardButton { Text = "Меньше 18" } }
+                    new List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton> { new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Больше или ровно 18" }, new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Меньше 18" } }
                 }
             };
         }
         private static IReplyMarkup Question2Buttons()
         {
-            return new ReplyKeyboardMarkup
+            return new Telegram.Bot.Types.ReplyMarkups.ReplyKeyboardMarkup
             {
-                Keyboard = new List<List<KeyboardButton>>
+                Keyboard = new List<List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton>>
                 {
-                    new List<KeyboardButton> { new KeyboardButton { Text = "Гуманитарные" }, new KeyboardButton { Text = "Точные" } },
-                    new List<KeyboardButton> { new KeyboardButton { Text = "Вернуться к прошлому вопросу" } }
+                    new List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton> { new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Гуманитарные" }, new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Точные" } },
+                    new List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton> { new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Вернуться к прошлому вопросу" } }
                 }
             };
         }
         private static IReplyMarkup Question3Buttons()
         {
-            return new ReplyKeyboardMarkup
+            return new Telegram.Bot.Types.ReplyMarkups.ReplyKeyboardMarkup
             {
-                Keyboard = new List<List<KeyboardButton>>
+                Keyboard = new List<List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton>>
                 {
-                    new List<KeyboardButton> { new KeyboardButton { Text = "Нравится" }, new KeyboardButton { Text = "Не нравится" } },
-                    new List<KeyboardButton> { new KeyboardButton { Text = "Вернуться к прошлому вопросу" } }
+                    new List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton> { new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Нравится" }, new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Не нравится" } },
+                    new List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton> { new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Вернуться к прошлому вопросу" } }
                 }
             };
         }
         private static IReplyMarkup Question4Buttons()
         {
-            return new ReplyKeyboardMarkup
+            return new Telegram.Bot.Types.ReplyMarkups.ReplyKeyboardMarkup
             {
-                Keyboard = new List<List<KeyboardButton>>
+                Keyboard = new List<List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton>>
                 {
-                    new List<KeyboardButton> { new KeyboardButton { Text = "Да" }, new KeyboardButton { Text = "Нет" } },
-                    new List<KeyboardButton> { new KeyboardButton { Text = "Вернуться к прошлому вопросу" } }
+                    new List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton> { new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Да" }, new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Нет" } },
+                    new List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton> { new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Вернуться к прошлому вопросу" } }
                 }
             };
         }
         private static IReplyMarkup EmptyAnsver()
         {
-            return new ReplyKeyboardMarkup
+            return new Telegram.Bot.Types.ReplyMarkups.ReplyKeyboardMarkup
             {
-                Keyboard = new List<List<KeyboardButton>>
+                Keyboard = new List<List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton>>
                 {
-                    new List<KeyboardButton> { new KeyboardButton { Text = "Вернуться к прошлому вопросу" }, new KeyboardButton { Text = "Пройти тест заново" } }
+                    new List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton> { new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Вернуться к прошлому вопросу" }, new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Пройти тест заново" } }
                 }
             };
         }
         private static IReplyMarkup Question5Buttons()
         {
-            return new ReplyKeyboardMarkup
+            return new Telegram.Bot.Types.ReplyMarkups.ReplyKeyboardMarkup
             {
-                Keyboard = new List<List<KeyboardButton>>
+                Keyboard = new List<List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton>>
                 {
-                    new List<KeyboardButton> { new KeyboardButton { Text = "Хочу" }, new KeyboardButton { Text = "Не хочу" } },
-                    new List<KeyboardButton> { new KeyboardButton { Text = "Вернуться к прошлому вопросу" } }
+                    new List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton> { new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Хочу" }, new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Не хочу" } },
+                    new List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton> { new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Вернуться к прошлому вопросу" } }
                 }
             };
         }
         private static IReplyMarkup Question6Buttons()
         {
-            return new ReplyKeyboardMarkup
+            return new Telegram.Bot.Types.ReplyMarkups.ReplyKeyboardMarkup
             {
-                Keyboard = new List<List<KeyboardButton>>
+                Keyboard = new List<List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton>>
                 {
-                    new List<KeyboardButton> { new KeyboardButton { Text = "Желаю" }, new KeyboardButton { Text = "Не желаю" } },
-                    new List<KeyboardButton> { new KeyboardButton { Text = "Вернуться к прошлому вопросу" } }
+                    new List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton> { new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Желаю" }, new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Не желаю" } },
+                    new List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton> { new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Вернуться к прошлому вопросу" } }
                 }
             };
         }
         private static IReplyMarkup Question7Buttons()
         {
-            return new ReplyKeyboardMarkup
+            return new Telegram.Bot.Types.ReplyMarkups.ReplyKeyboardMarkup
             {
-                Keyboard = new List<List<KeyboardButton>>
+                Keyboard = new List<List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton>>
                 {
-                    new List<KeyboardButton> { new KeyboardButton { Text = "Секретарь-администратор" }, new KeyboardButton { Text = "Офис-менеджер" } },
-                    new List<KeyboardButton> { new KeyboardButton { Text = "Архивариус" }, new KeyboardButton { Text = "Делопроизводитель" } },
-                    new List<KeyboardButton> { new KeyboardButton { Text = "Специалист по кадровому делопроизводству" }, new KeyboardButton { Text = "Рекрутер" } }
+                    new List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton> { new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Секретарь-администратор" }, new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Офис-менеджер" } },
+                    new List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton> { new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Архивариус" }, new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Делопроизводитель" } },
+                    new List<Telegram.Bot.Types.ReplyMarkups.KeyboardButton> { new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Специалист по кадровому делопроизводству" }, new Telegram.Bot.Types.ReplyMarkups.KeyboardButton { Text = "Рекрутер" } }
                 }
             };
         }

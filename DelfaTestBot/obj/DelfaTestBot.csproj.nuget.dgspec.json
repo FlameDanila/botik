@@ -42,7 +42,11 @@
           "dependencies": {
             "Telegram.Bot": {
               "target": "Package",
-              "version": "[16.0.1, )"
+              "version": "[16.0.2, )"
+            },
+            "WTelegramClient": {
+              "target": "Package",
+              "version": "[2.3.1, )"
             }
           },
           "imports": [
